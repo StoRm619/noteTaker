@@ -36,6 +36,10 @@ app.post("/api/notes", (res, req) => {
     fs.writeFileSync('./db/db.json', JSON.stringify(notes));
 });
 
+app.delete("api/notes/:id", (res, req) => {
+    
+});
+
 
 app.listen(PORT, () => {
     console.log("App listening on PORT" + PORT);
