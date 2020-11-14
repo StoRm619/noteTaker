@@ -26,18 +26,20 @@ app.get('/', (req, res) => {
 
 app.get("/api/notes", (req, res) => {
     // console.log("notes");
-    console.log(notes);
+    // console.log(notes);
     return res.send(notes);
 });
 
 app.post("/api/notes", (req, res) => {
-    let newNote = req.req.body;
+    let newNote = req.body;
     notes.push(newNote);
     fs.writeFileSync('./db/db.json', JSON.stringify(notes));
+    return res.json(newNote);
 });
 
-app.delete("api/notes/:id", (res, req) => {
-
+app.delete("/api/notes/:id", (req, res) => {
+    let deleteId = req.params.id;
+    console.log(deleteId);
 });
 
 
