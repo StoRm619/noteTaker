@@ -12,6 +12,8 @@
 It can be used to write, save, and delete notes.
 
 ## Usage
+LINK: https://still-garden-83282.herokuapp.com/ 
+
 run server.js
 
 <img src="./public/assets/img/operating.gif" width = "800">
