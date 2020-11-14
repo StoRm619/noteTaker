@@ -25,13 +25,12 @@ app.get('/', (req, res) => {
 });
 
 app.get("/api/notes", (req, res) => {
-    // console.log("notes");
-    // console.log(notes);
     return res.send(notes);
 });
 
 app.post("/api/notes", (req, res) => {
     let newNote = req.body;
+    newNote["id"] = newNote.title + notes.length;
     notes.push(newNote);
     fs.writeFileSync('./db/db.json', JSON.stringify(notes));
     return res.json(newNote);
@@ -40,6 +39,13 @@ app.post("/api/notes", (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
     let deleteId = req.params.id;
     console.log(deleteId);
+    for (let i = 0; i < notes.length; i++){
+        if(notes[i].id == deleteId){
+            notes.splice(i, 1);
+        }
+    }
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes));
+    return res.json(notes);
 });
 
 
