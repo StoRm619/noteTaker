@@ -20,24 +20,24 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-app.get("/api/notes", (res, req) => {
+app.get("/api/notes", (req, res) => {
     // console.log("notes");
-    // console.log(notes);
-    return res.json(notes);
+    console.log(notes);
+    return res.send(notes);
 });
 
-app.post("/api/notes", (res, req) => {
+app.post("/api/notes", (req, res) => {
     let newNote = req.req.body;
     notes.push(newNote);
     fs.writeFileSync('./db/db.json', JSON.stringify(notes));
 });
 
 app.delete("api/notes/:id", (res, req) => {
-    
+
 });
 
 

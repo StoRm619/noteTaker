@@ -12,6 +12,9 @@ const getNotes = () => {
   return $.ajax({
     url: "/api/notes",
     method: "GET",
+    success: function(res) {
+      console.log(res);
+    }
   });
 };
 
@@ -139,6 +142,8 @@ const renderNoteList = (notes) => {
 
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => {
+  // console.log("getNotes()");
+  // console.log(getNotes());
   return getNotes().then(renderNoteList);
 };
 
