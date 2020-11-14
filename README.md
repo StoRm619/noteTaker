@@ -14,6 +14,8 @@ It can be used to write, save, and delete notes.
 ## Usage
 run server.js
 
+<img src="./public/assets/img/operating.gif" width = "800">
+
 ## Installation 
 To install necessary dependencies, run the following command:
 npm i
